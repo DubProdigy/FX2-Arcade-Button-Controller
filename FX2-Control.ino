@@ -47,7 +47,7 @@
 //---------
 
 #define LED_PIN 13
-//#define BOUNCE_LOCK-OUT //activate the alternative debouncing method. This method is a lot more responsive, but does not cancel noise.
+#define BOUNCE_LOCK-OUT //activate the alternative debouncing method. This method is a lot more responsive, but does not cancel noise.
 
 //========== CONFIGURATION SETTINGS ==========
 #define BOUNCE_WAIT 10
@@ -118,7 +118,7 @@ void setup() {
      (debouncers[i]).attach(buttonPins[i]);
      (debouncers[i]).interval(BOUNCE_WAIT);
         delay(100);
-     buttonPressed[i] = false;, 
+     buttonPressed[i] = false;
    }
      
 }
