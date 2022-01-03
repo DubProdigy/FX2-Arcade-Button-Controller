@@ -1,9 +1,9 @@
 #include <Bounce2.h>
 #include <Keyboard.h>
 
-/* Nano Arduino Code
+/* ItsyBitsy 32u4 16Mhz 5V Arduino Code
    license: Public Domain - please use this code however you'd like.
-   This code is to turn an arduino into an HID keyboard controller for arcade games 
+   This code is to turn an arduino into an HID keyboard controller for Pinball FX2 arcade games 
 */
 
 //---------
