@@ -54,20 +54,20 @@
 #define BOUNCE_COUNT 1
 
 int buttonPins[] = {
-  9, // Alt Key
-  8, // F4
-  2, // Slow Motion
-  4, // Nudge Left
-  6, // Nudge Right
-  5, // Nudge Foward
-  18, // Change View
-  19, // Left Flipper
-  20, // Right Flipper
-  21, // Launch Ball
-  10, // Up Arrow
-  16, // Down Arrow
-  14, // Left Arrow
-  15 // Right Arrow
+  20, // Alt Key / ItsyBitsy A2
+  21, // F4 / ItsyBitsy A3
+  19, // Slow Motion / ItsyBitsy A1
+  12, // Nudge Left / ItsyBitsy GPIO #12
+  18, // Nudge Right / ItsyBitsy A0
+  11, // Nudge Foward / ItsyBitsy GPIO #11
+  10, // Change View / ItsyBitsy GPIO #10
+  5, // Left Flipper / ItsyBitsy GPIO #5
+  7, // Right Flipper / ItsyBitsy GPIO #7
+  9, // Launch Ball / ItsyBitsy GPIO #9
+  22, // Up Arrow / ItsyBitsy A4
+  23, // Down Arrow / ItsyBitsy A5
+  24, // Left Arrow / ItsyBitsy A6
+  25 // Right Arrow / ItsyBitsy A7
 };
 
 char buttonPresets[] = { 
