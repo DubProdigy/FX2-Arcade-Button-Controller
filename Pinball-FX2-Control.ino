@@ -102,13 +102,11 @@ int debounceCount[15];
 void setup() {
   // put your setup code here, to run once:
 
-  pinMode(RXLED, OUTPUT);  // Set RX LED as an output
- // TX LED is set as an output behind the scenes 
- 
-   //Setup the LED :
+  //Setup the LED(s) :
  pinMode(LED_PIN,OUTPUT);
+ pinMode(RXLED, OUTPUT);
+ digitalWrite(LED_PIN, LOW);
  digitalWrite(RXLED, LOW);
-  
  
  Keyboard.begin();
  
@@ -137,6 +135,8 @@ void loop() {
        if(debounceCount[j] == BOUNCE_COUNT && buttonPressed[j] == false) { //the button has been held down long enough and it hasn't been previously registered as pressed
           Keyboard.press(char(buttonPresets[j])); //Keyboard.write('1');
           buttonPressed[j] = true;
+          digitalWrite(LED_PIN, HIGH);
+          // digitalWrite(RXLED, HIGH); // uncomment if present on your board
         } else {
             if(debounceCount[j] < BOUNCE_COUNT) { 
               debounceCount[j] = debounceCount[j] + 1; //else increment the count
@@ -150,6 +150,8 @@ void loop() {
         } else {
            Keyboard.release(char(buttonPresets[j])); //if 0 then release button
            buttonPressed[j] = false;
+           digitalWrite(LED_PIN, LOW);
+           // digitalWrite(RXLED, LOW); // uncomment if present on your board
         }
         
       }
