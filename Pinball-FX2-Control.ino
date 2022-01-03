@@ -67,7 +67,8 @@ int buttonPins[] = {
   22, // Up Arrow / ItsyBitsy A4
   23, // Down Arrow / ItsyBitsy A5
   24, // Left Arrow / ItsyBitsy A6
-  25 // Right Arrow / ItsyBitsy A7
+  25, // Right Arrow / ItsyBitsy A7
+  26 // Escape / ItsyBitsy A8
 };
 
 char buttonPresets[] = { 
@@ -84,18 +85,19 @@ char buttonPresets[] = {
   KEY_UP_ARROW, // Up Arrow
   KEY_DOWN_ARROW, // Down Arrow
   KEY_LEFT_ARROW, // Left Arrow
-  KEY_RIGHT_ARROW // Right Arrow
+  KEY_RIGHT_ARROW, // Right Arrow
+  KEY_ESC // Escape
 };
 
 //========== END CONFIGURATION SETTINGS ==========
 
-int RXLED = 2;  // The RX LED has a defined Arduino pin
+int RXLED = 0;  // The RX LED has a defined Arduino pin
 // Instantiate button state array
-boolean buttonPressed[14];
+boolean buttonPressed[15];
 // Instantiate a Bounce object array to store each debouncer in
-Bounce debouncers[14];
+Bounce debouncers[15];
 //Instantiate a counter array for each button to debounce count timer
-int debounceCount[14];
+int debounceCount[15];
 
 void setup() {
   // put your setup code here, to run once:
@@ -111,7 +113,7 @@ void setup() {
  Keyboard.begin();
  
   // Create debounce instances :
-   for (int i = 0; i < 14; i++) {
+   for (int i = 0; i < 15; i++) {
      debouncers[i] = Bounce();
      debounceCount[i] = 0;
      pinMode(buttonPins[i],INPUT_PULLUP);
@@ -125,7 +127,7 @@ void setup() {
 
 void loop() {
   
-  for (int j = 0; j < 14; j++) { //iterate over each button (pin)
+  for (int j = 0; j < 15; j++) { //iterate over each button (pin)
     
      (debouncers[j]).update(); //check current value
      int value = (debouncers[j]).read();
