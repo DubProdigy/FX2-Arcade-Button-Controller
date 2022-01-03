@@ -1,13 +1,8 @@
 #include <Bounce2.h>
 
-/* Pro Micro Test Code
-   by: Florian Maurer
-   GameThing by Cuddleburrito
-   date: March 6, 2015
+/* Nano Arduino Code
    license: Public Domain - please use this code however you'd like.
-   It's provided as a learning tool.
-
-   This code is provided to how to turn an arduino into an HID keyboard controller for arcade games 
+   This code is to turn an arduino into an HID keyboard controller for arcade games 
 */
 
 //---------
@@ -20,7 +15,6 @@
 #define KEY_RIGHT_SHIFT    0x85
 #define KEY_RIGHT_ALT  0x86
 #define KEY_RIGHT_GUI  0x87
-
 #define KEY_UP_ARROW   0xDA
 #define KEY_DOWN_ARROW 0xD9
 #define KEY_LEFT_ARROW 0xD8
