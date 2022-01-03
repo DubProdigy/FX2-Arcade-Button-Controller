@@ -45,12 +45,12 @@
 
 //---------
 
-define LED_PIN 13
-define BOUNCE_LOCK-OUT //activate the alternative debouncing method. This method is a lot more responsive, but does not cancel noise.
+#define LED_PIN 13
+#define BOUNCE_LOCK-OUT //activate the alternative debouncing method. This method is a lot more responsive, but does not cancel noise.
 
 //========== CONFIGURATION SETTINGS ==========
-define BOUNCE_WAIT 10
-define BOUNCE_COUNT 1
+#define BOUNCE_WAIT 10
+#define BOUNCE_COUNT 1
 
 int buttonPins[] = {
   9, // Alt Key
