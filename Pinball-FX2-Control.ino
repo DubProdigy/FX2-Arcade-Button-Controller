@@ -46,7 +46,6 @@
 
 //---------
 
-#define LED_PIN 13
 #define BOUNCE_LOCK-OUT //activate the alternative debouncing method. This method is a lot more responsive, but does not cancel noise.
 
 //========== CONFIGURATION SETTINGS ==========
@@ -91,7 +90,6 @@ char buttonPresets[] = {
 
 //========== END CONFIGURATION SETTINGS ==========
 
-int RXLED = 0;  // The RX LED has a defined Arduino pin
 // Instantiate button state array
 boolean buttonPressed[15];
 // Instantiate a Bounce object array to store each debouncer in
@@ -99,14 +97,18 @@ Bounce debouncers[15];
 //Instantiate a counter array for each button to debounce count timer
 int debounceCount[15];
 
+  //Setup the LED :
+int LED_PIN = 13;  // The LED has a defined Arduino pin
+bool LED_STATE = false; // LEDSTATE will be used to set the LED
+unsigned long StartMillis = 0; // Will store the last time LED was updated
+
 void setup() {
   // put your setup code here, to run once:
 
-  //Setup the LED(s) :
+  //Setup the LED :
  pinMode(LED_PIN,OUTPUT);
- pinMode(RXLED, OUTPUT);
  digitalWrite(LED_PIN, LOW);
- digitalWrite(RXLED, LOW);
+
  
  Keyboard.begin();
  
@@ -123,8 +125,7 @@ void setup() {
      
 }
 
-void loop() {
-  
+void loop() {  
   for (int j = 0; j < 15; j++) { //iterate over each button (pin)
     
      (debouncers[j]).update(); //check current value
@@ -136,7 +137,8 @@ void loop() {
           Keyboard.press(char(buttonPresets[j])); //Keyboard.write('1');
           buttonPressed[j] = true;
           digitalWrite(LED_PIN, HIGH);
-          // digitalWrite(RXLED, HIGH); // uncomment if present on your board
+          StartMillis = millis();
+          LED_STATE = true;
         } else {
             if(debounceCount[j] < BOUNCE_COUNT) { 
               debounceCount[j] = debounceCount[j] + 1; //else increment the count
@@ -150,8 +152,10 @@ void loop() {
         } else {
            Keyboard.release(char(buttonPresets[j])); //if 0 then release button
            buttonPressed[j] = false;
-           digitalWrite(LED_PIN, LOW);
-           // digitalWrite(RXLED, LOW); // uncomment if present on your board
+            if (LED_STATE && ((millis() - StartMillis) >= 250)) {
+              LED_STATE = false; // Prevent this code being run more then once
+              digitalWrite(LED_PIN, LOW);
+            }
         }
         
       }
