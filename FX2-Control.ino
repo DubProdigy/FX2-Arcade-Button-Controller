@@ -1,4 +1,5 @@
 #include <Bounce2.h>
+#include <Keyboard.h>
 
 /* Nano Arduino Code
    license: Public Domain - please use this code however you'd like.
@@ -46,7 +47,7 @@
 //---------
 
 #define LED_PIN 13
-#define BOUNCE_LOCK-OUT //activate the alternative debouncing method. This method is a lot more responsive, but does not cancel noise.
+//#define BOUNCE_LOCK-OUT //activate the alternative debouncing method. This method is a lot more responsive, but does not cancel noise.
 
 //========== CONFIGURATION SETTINGS ==========
 #define BOUNCE_WAIT 10
