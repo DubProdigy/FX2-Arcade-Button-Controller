@@ -45,51 +45,45 @@
 
 //---------
 
-#define LED_PIN 13
-//#define BOUNCE_LOCK-OUT //activate the alternative debouncing method. This method is a lot more responsive, but does not cancel noise.
+define LED_PIN 13
+define BOUNCE_LOCK-OUT //activate the alternative debouncing method. This method is a lot more responsive, but does not cancel noise.
 
 //========== CONFIGURATION SETTINGS ==========
-#define BOUNCE_WAIT 10
-#define BOUNCE_COUNT 1
+define BOUNCE_WAIT 10
+define BOUNCE_COUNT 1
 
-  //pins 2-9, 10, 14,15,16, 18-21
-  //for buttons 1-12, up, down, left and right
 int buttonPins[] = {
-  9, //button 1
-  8, //button 2
-  7, //button 3
-  3, //button 4
-  2, //button 5
-  4, //button 6
-  6, //button 7
-  5, //button 8
-  18, //button 9
-  19, //button 1 back panel
-  20, //button 2 back panel
-  21, //button 3 back panel
-  10, //joystick up
-  16, //joystick down
-  14, //joystick left
-  15 // joystick right
+  9, // Alt Key
+  8, // F4
+  2, // Slow Motion
+  4, // Nudge Left
+  6, // Nudge Right
+  5, // Nudge Foward
+  18, // Change View
+  19, // Left Flipper
+  20, // Right Flipper
+  21, // Launch Ball
+  10, // Up Arrow
+  16, // Down Arrow
+  14, // Left Arrow
+  15 // Right Arrow
 };
 
 char buttonPresets[] = { 
-  KEY_LEFT_CTRL, //button 1
-  KEY_LEFT_ALT, //button 2
-  ' ', //button 3
-  KEY_LEFT_SHIFT, //button 4
-  'z', //button 5
-  'x', //button 6
-  '7', //button 7
-  '8', //button 8
-  '9', //button 9
-  '1', //button 1 back panel
-  '5', //button 2 back panel
-  '2', //button 3 back panel
-  KEY_UP_ARROW, //joystick up
-  KEY_DOWN_ARROW, //joystick down
-  KEY_LEFT_ARROW, //joystick left
-  KEY_RIGHT_ARROW // joystick right
+  KEY_LEFT_ALT, // Alt Key
+  KEY_F4, // F4
+  's', // Slow Motion
+  KEY_LEFT_CTRL, // Nudge Left
+  KEY_RIGHT_CTRL, // Nudge Right
+  ' ', // Nudge Foward
+  'c', // Change View
+  KEY_LEFT_SHIFT, // Left Flipper
+  KEY_RIGHT_CTRL, // Right Flipper
+  KEY_RETURN, // Launch Ball
+  KEY_UP_ARROW, // Up Arrow
+  KEY_DOWN_ARROW, // Down Arrow
+  KEY_LEFT_ARROW, // Left Arrow
+  KEY_RIGHT_ARROW // Right Arrow
 };
 
 //========== END CONFIGURATION SETTINGS ==========
